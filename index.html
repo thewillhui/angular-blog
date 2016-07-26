@@ -11,28 +11,29 @@
   <script type="text/javascript" src="./js/app.js"></script>
   <script type="text/javascript" src="./controllers/Blog_controller.js"></script>
   <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body class="container">
-  <section class="well" ng-controller="Blog">
-    <h2> New blog post for my {{title}} </h2>
+  <section  ng-controller="Blog">
+    <h2 class="well"> New blog post for my {{title}} </h2>
     <form class="form">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Title" ng-model="newPostTitle">
       </div>
       <div class="form-group">
-        <textarea type="text" class="form-control" placeholder="Blog content here..." ng-model="newPostBody"></textarea>
-        <button class="btn btn-success" ng-hide="editable" ng-click="addPost()">Create post</button>
-        <button class="btn btn-success" ng-show="editable" ng-click="updatePost(newPostTitle, newPostBody)">Update post</button>
+        <textarea rows="10" type="text" class="form-control" placeholder="Blog content here..." ng-model="newPostBody"></textarea>
+        <button class="btn btn-success pull-right" ng-hide="editable" ng-click="addPost()">Create post</button>
+        <button class="btn btn-success pull-right" ng-show="editable" ng-click="updatePost(newPostTitle, newPostBody)">Update post</button>
       </div>
     </form>
-    <div>
+    <div class="row">
       <h2>Latest blog posts</h2>
-      <div ng-repeat="posts in posts">
-        <h3> {{posts.title}} </h3>
-        <p> {{posts.body}} </p>
-        <button class="btn btn-default" ng-click="editPost($index)">Edit</button>
-        <button class="btn btn-danger" ng-click="deletePost($index)">Delete</button>
+      <div ng-repeat="post in posts" class="col-sm-12 col-md-6 col-lg-4 post">
+        <h3> {{post.title}} </h3>
+        <p> {{post.body}} </p>
+        <button class="btn btn-sm btn-default" ng-click="editPost($index)">Edit</button>
+        <button class="btn btn-sm btn-danger" ng-click="deletePost($index)">Delete</button>
       </div>
     </div>
   </section>

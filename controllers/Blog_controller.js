@@ -3,7 +3,7 @@ app.controller('Blog', ['$scope', function($scope){
 
   $scope.newPostTitle = '';
   $scope.newPostBody = '';
-  $scope.postId = 0;
+  $scope.id = 0;
   $scope.editable = false;
   $scope.posts = [
     {title: "It's raining", body: "Very heavy", editable: false}
